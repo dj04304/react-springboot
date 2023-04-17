@@ -75,6 +75,55 @@
       // 스프레드는 그대로 출력되어 나오지만, map은 return할 때 원하는 값으로 가공하여 return할 수 있다.
 
       console.log(`b5의 값은: `, b5);
+
+      console.log('6.======================== 수정하기');
+
+      const users = [
+        { id: 1, name: '홍길동', phone: '2222' },
+        { id: 2, name: '박준형', phone: '3333' },
+        { id: 3, name: '박준형2', phone: '4444' },
+      ];
+
+      const updateUserDto = {
+        id: 2,
+        name: '김길동',
+      };
+
+      const newUser = users.map((user) => {
+        return user.id === updateUserDto.id
+          ? { ...user, ...updateUserDto }
+          : user;
+      });
+
+      console.log(newUser);
+
+      const a6 = { ...users[1], name: '김길동' };
+
+      console.log(a6);
+      console.log(users);
+
+      // users[1].name = upadateUserDto.name;
+
+      // const updateUser = [
+      //   ...users.slice(0, 1),
+      //   upadateUserDto,
+      //   ...users.slice(2, 3),
+      // ];
+
+      console.log('6.======================== 수정하기');
+
+      const data = { phone: '5555' };
+      const userInfo = {
+        id: 1,
+        name: '홍길동',
+        phone: '2222',
+        age: 17,
+        gender: '남',
+      };
+
+      const update = { ...userInfo, ...data };
+
+      console.log(update);
     </script>
   </body>
 </html>
