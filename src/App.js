@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import Spread from './spread';
 
 //  0. React 엔진 = 데이터 변경 감지에서 UI 그려주는 엔진
 //  1. 실행과정 (index.html) - SPA(싱글 페이지 어플리케이션) => a태그 사용불가
@@ -25,6 +26,7 @@ const b = 20; // 상수
 function App() {
   let c;
   let d = undefined;
+  let b = [1, 2, 3, 4];
   console.log(1, c);
 
   const myStyle = {
@@ -35,7 +37,10 @@ function App() {
     <div>
       <div style={myStyle}>안녕 {a === 10 ? '10입니다.' : '10이아닙니다.'}</div>
       <h1 className="box-style">해딩태그 {b === 20 && '20입니다.'}</h1>
+      <div>{b[0]}</div>
       <hr />
+
+      <Spread />
     </div>
   );
 }

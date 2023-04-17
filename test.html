@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // concat, filter, map, slice, 스프레드(전개) 연산자
+
+      console.log('1.======================== 스프레드 연산자');
+
+      const a = [1, 2, 3];
+      const c = a;
+      const b = [...a];
+
+      b.push(4); //데이터 변경
+      console.log(`a의값은: ${a}`); // 1, 2, 3
+      console.log(`b의값은: ${b}`); // 1, 2, 3, 4
+      console.log(`c의값은: ${c}`); // 1, 2, 3
+
+      //배열을 새롭게 복사해주는 방법, JAVA의 경우 for문을 돌려 새로운 배열에 집어넣어줘야한다.
+
+      console.log('2.======================== 추가하기(concat)');
+
+      const a2 = [1, 2, 3];
+      const b2 = a2.concat(4); // 새로운 공간을 만들어 a2에 4가 추가된 것이 들어간다.
+      // const b2_1 = a2.push(4); // push를 해버리면 a2의 값이 바뀐다.
+      const c2 = [0, ...a, 4]; // concat한것과 같다
+
+      console.log(`a2의값은: ${a2}`); // 1, 2, 3
+      console.log(`b2의값은: ${b2}`); // 1, 2, 3, 4
+      // console.log(`b2_1의값은: ${b2_1}`); // 4
+      console.log(`c2의값은: ${c2}`); // 1, 2, 3, 4
+
+      console.log('3.======================== 걸러내기(filter)');
+
+      const a3 = [1, 2, 3];
+      const b3 = a3.filter((n) => {
+        return n != 1;
+      }); // boolean을 return 받는다. -> true만 걸러낸다.
+
+      console.log(`b3의 값은: ${b3}`); // 2, 3
+
+      console.log('4.======================== 잘라내기(slice)');
+      const a4 = [1, 2, 3];
+      const b4 = a4.slice(0, 2);
+
+      console.log(`b4의 값은: `, b4); // [1, 2]
+
+      const c4 = [a4.slice(0, 2)];
+
+      console.log(`c4의 값은: `, c4); // [[1,2]]
+
+      const d4 = [...a4.slice(0, 2), 4, ...a4.slice(2, 3)];
+      console.log(`d4의 값은: `, d4); // [1, 2, 3 4] 배열사이에 추가해주는 역할이다.
+
+      console.log('5.======================== 반복하기(map)');
+      const a5 = [1, 2, 3];
+      // for (let i = 0; i < a5.length; i++) {
+      //   console.log(a5[i]);
+      // }
+
+      // a5.forEach((n) => {
+      //   console.log(n);
+      // }); // return 못함
+
+      const b5 = a5.map((n) => {
+        return n + 10;
+      }); // const b5 = [...a5]
+
+      // 스프레드 와의 차이점은 가공할수 있냐 없냐의 차이이다.
+      // 스프레드는 그대로 출력되어 나오지만, map은 return할 때 원하는 값으로 가공하여 return할 수 있다.
+
+      console.log(`b5의 값은: `, b5);
+    </script>
+  </body>
+</html>
