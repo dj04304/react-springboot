@@ -5,6 +5,8 @@ import { useState, useEffect } from 'react';
 import Sub from './Sub';
 import { effecNum } from './Effec';
 import Effec from './Effec';
+import MemoSub from './MemoSub';
+import RefSub from './RefSub';
 
 //  0. React 엔진 = 데이터 변경 감지에서 UI 그려주는 엔진
 //  1. 실행과정 (index.html) - SPA(싱글 페이지 어플리케이션) => a태그 사용불가
@@ -98,6 +100,12 @@ function App() {
       <hr />
       {effecNum}
       <Effec />
+      <hr />
+
+      <MemoSub />
+      <hr />
+
+      <RefSub />
     </div>
   );
 }

@@ -124,6 +124,12 @@
       const update = { ...userInfo, ...data };
 
       console.log(update);
+
+      let nums = Array.from({ length: 5 }); //빈 Array를 생성해줌
+      let nums2 = Array.from({ length: 5 }).map(() => 5); //5를 return해서 넣어줌
+
+      console.log(nums);
+      console.log(nums2);
     </script>
   </body>
 </html>
