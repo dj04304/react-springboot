@@ -11,10 +11,17 @@ const Home = (props) => {
 
   //구조분할 할당
   //주의: 앞에서 boards 라는 이름으로 보냈으면, 중괄호 내에 boards 라고 써줘야 받을 수 있다.
-  const { boards, setBoards } = props;
+  const { boards, setBoards, number, setNumber } = props;
   return (
     <div>
-      <h1>홈페이지 입니다.</h1>
+      <h1>홈: {number}</h1>
+      <button
+        onClick={() => {
+          setNumber(number + 1);
+        }}
+      >
+        번호 증가
+      </button>
       <button
         onClick={() => {
           setBoards([]);
