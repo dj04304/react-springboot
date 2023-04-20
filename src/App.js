@@ -9,6 +9,11 @@ import MemoSub from './MemoSub';
 import RefSub from './RefSub';
 import StyledCom from './StyledCom';
 import HomePage from './pages/HomePage';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import { Route, Routes } from 'react-router-dom';
+import LoginPage from './pages/LoginPage';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 //  0. React 엔진 = 데이터 변경 감지에서 UI 그려주는 엔진
 //  1. 실행과정 (index.html) - SPA(싱글 페이지 어플리케이션) => a태그 사용불가
@@ -74,7 +79,7 @@ function App() {
   //랜더링 시점 = 상태값 변경
   return (
     <div>
-      <div style={myStyle}>안녕 {a === 10 ? '10입니다.' : '10이아닙니다.'}</div>
+      {/* <div style={myStyle}>안녕 {a === 10 ? '10입니다.' : '10이아닙니다.'}</div>
       <h1 className="box-style">해딩태그 {b === 20 && '20입니다.'}</h1>
       <div>{b[0]}</div>
       <hr />
@@ -113,9 +118,14 @@ function App() {
       <StyledCom />
 
       <hr />
-      <hr />
+      <hr /> */}
 
-      <HomePage />
+      <Header />
+      <Routes>
+        <Route exact path="/" element={<HomePage />} />
+        <Route exact path="/login/:id" element={<LoginPage />} />
+      </Routes>
+      <Footer />
     </div>
   );
 }

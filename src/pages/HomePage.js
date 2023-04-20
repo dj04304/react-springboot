@@ -8,6 +8,7 @@ const HomePage = () => {
 
   const [boards, setBoards] = useState([]);
   const [number, setNumber] = useState(0);
+  const [user, setUser] = useState({});
 
   //빈 배열이면 최초 한번만 실행한다.
   useEffect(() => {
@@ -21,19 +22,20 @@ const HomePage = () => {
 
     //다운로드가 되지않았는데 빈 데이터가 들어가버린다. 그래서 처음에 빈 데이터가 들어간후 callback되어 다운로드된 데이터가 다시 들어가는 상태가 된다.
     //그래서 상태 데이터(useState)여야 한다.
+    //빈데이터
     setBoards([...data]);
+    setUser({ id: 1, username: 'ssar' });
   }, []);
 
   return (
     <div>
-      <Header />
       <Home
         boards={boards}
         setBoards={setBoards}
         number={number}
         setNumber={setNumber}
+        user={user}
       />
-      <Footer />
     </div>
   );
 };
